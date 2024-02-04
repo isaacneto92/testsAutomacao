@@ -28,5 +28,8 @@ Then("deve ter codigo {string} conforme esperado", (codigoB) => {
 });
 
 And("seguinte retorno do body {string} conforme esperado", (retornoB) => {
-  expect(retorno).to.be.equal(retornoB);
+  const expectedResponse = JSON.parse(retornoB);
+  const retornoObj = JSON.parse(retorno);
+  
+  expect(retornoObj).to.deep.equal(expectedResponse);
 });
